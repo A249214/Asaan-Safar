@@ -1,0 +1,220 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #171A1D;
+    --foreground: #F5F1E8;
+    --card: #22272A;
+    --card-foreground: #F5F1E8;
+    --muted: #20352F;
+    --muted-foreground: #A9A59B;
+    --border: #343A3C;
+    --primary: #C79A45;
+    --primary-hover: #D9B56A;
+    --accent: #20352F;
+    --success: #5F8F72;
+    --error: #B85C4A;
+  }
+
+  .light {
+    --background: #F5F1E8;
+    --foreground: #171A1D;
+    --card: #FFFFFF;
+    --card-foreground: #171A1D;
+    --muted: #EBE5D8;
+    --muted-foreground: #66635C;
+    --border: #DCD5C5;
+    --primary: #C79A45;
+    --primary-hover: #B88B38;
+    --accent: #20352F;
+    --success: #5F8F72;
+    --error: #B85C4A;
+  }
+
+  * {
+    border-color: #343A3C;
+  }
+
+  .light * {
+    border-color: #DCD5C5;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #171A1D;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #343A3C;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C79A45;
+  }
+}
+
+@layer components {
+  /* Elegant Road & Brass cards - replacing excessive SaaS glassmorphism */
+  .glass-card,
+  .road-card {
+    background-color: #22272A;
+    border: 1px solid #343A3C;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.45);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .road-card-forest {
+    background-color: #20352F;
+    border: 1px solid #343A3C;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.35);
+  }
+
+  .light .glass-card,
+  .light .road-card {
+    background-color: #FAF7F1;
+    border: 1px solid #DDD5C5;
+    box-shadow: 0 4px 18px -2px rgba(32, 53, 47, 0.08);
+  }
+
+  /* Warm paper-like surfaces for content, routes, and booking */
+  .card-warm {
+    background-color: #FAF7F1;
+    color: #171A1D;
+    border: 1px solid #DDD5C5;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 12px -2px rgba(32, 53, 47, 0.06);
+    transition: all 0.2s ease;
+  }
+
+  .card-warm:hover {
+    border-color: #C79A45;
+    box-shadow: 0 6px 20px -2px rgba(199, 154, 69, 0.15);
+  }
+
+  .gradient-text,
+  .brass-text {
+    color: #C79A45;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(
+      180deg,
+      rgba(23, 26, 29, 0.75) 0%,
+      rgba(23, 26, 29, 0.90) 65%,
+      #171A1D 100%
+    );
+  }
+
+  .section-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Physical ticket / coupon perforated border */
+  .ticket-perforated {
+    position: relative;
+    background-color: #FAF7F1;
+    color: #171A1D;
+    border: 1px dashed #C79A45;
+  }
+
+  /* Highway dashed lane divider */
+  .highway-divider {
+    background-image: linear-gradient(to right, #C79A45 50%, transparent 50%);
+    background-size: 16px 2px;
+    background-repeat: repeat-x;
+    height: 2px;
+  }
+
+  .highway-divider-subtle {
+    background-image: linear-gradient(to right, #343A3C 50%, transparent 50%);
+    background-size: 14px 1.5px;
+    background-repeat: repeat-x;
+    height: 1.5px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Accessible Focus Rings */
+  .focus-ring {
+    outline: none;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  .focus-ring:focus-visible {
+    box-shadow: 0 0 0 2px #171A1D, 0 0 0 4px #C79A45;
+  }
+
+  .focus-ring-light {
+    outline: none;
+    transition: box-shadow 0.15s ease-in-out;
+  }
+  .focus-ring-light:focus-visible {
+    box-shadow: 0 0 0 2px #FAF7F1, 0 0 0 4px #C79A45;
+  }
+
+  /* Telematics Radar & Brass Glows */
+  .radar-glow {
+    box-shadow: 0 0 18px rgba(95, 143, 114, 0.35);
+  }
+
+  .brass-glow {
+    box-shadow: 0 0 20px rgba(199, 154, 69, 0.28);
+  }
+
+  /* Hide scrollbar for clean horizontal steppers */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Print-Friendly Stylesheet for Digital Tickets & Receipts */
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+  header, footer, nav, .print\:hidden, button, [role="button"], .custom-cursor {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .shadow-card-warm, .shadow-brass, .shadow-card-dark {
+    box-shadow: none !important;
+  }
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+}
+
